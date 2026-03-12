@@ -1,12 +1,12 @@
 <section>
   <h2>레슨 문의</h2>
   <p>전화: 010-0000-0000</p>
-  
+
   <!-- 버튼 -->
-  <button class="button" onclick="showPrice()">신청하기</button>
-  
-  <!-- 가격 안내 영역, 처음에는 숨김 -->
-  <div id="priceInfo" style="display:none; margin-top:15px; padding:10px; background:#e0f7e0; border-radius:6px;">
+  <a class="button" href="javascript:void(0)" onclick="showPrice()">신청하기</a>
+
+  <!-- 가격 안내 div (초기에는 숨김) -->
+  <div id="priceInfo" style="display:none; margin-top:15px; padding:15px; background:#e0f7e0; border-radius:8px;">
     <p>50분 8회: 500,000원</p>
     <p>50분 20회: 1,000,000원</p>
   </div>
@@ -15,7 +15,6 @@
 <script>
   function showPrice() {
     const priceDiv = document.getElementById('priceInfo');
-    // 토글 기능: 버튼 누를 때마다 나타나거나 숨김
     if(priceDiv.style.display === 'none'){
       priceDiv.style.display = 'block';
     } else {
