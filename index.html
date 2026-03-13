@@ -13,7 +13,7 @@ body{
 .main{
     background:#0a3cff;
     color:white;
-    height:100vh;
+    min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -29,12 +29,20 @@ button{
 }
 
 .price{
-    display:none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
     background:white;
     color:black;
     padding:30px;
     border-radius:10px;
     margin-top:20px;
+}
+.price.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 </style>
 </head>
@@ -45,19 +53,20 @@ button{
 
 <h1>프라이빗 골프 레슨</h1>
 
-<button onclick="showPrice()">신청하기</button>
+<button class="lesson-btn" onclick="togglePrice()">레슨 신청하기</button>
 
 <div class="price" id="priceTable">
-<h2>레슨 가격</h2>
-<p>50분 × 8회 : 50만원</p>
-<p>50분 × 20회 : 100만원</p>
+    <h2>레슨 가격</h2>
+    <p>50분 × 8회 : 50만원</p>
+    <p>50분 × 20회 : 100만원</p>
 </div>
 
 </div>
 
 <script>
-function showPrice(){
-    document.getElementById("priceTable").style.display = "block";
+function togglePrice(){
+    var priceTable = document.getElementById("priceTable");
+    priceTable.classList.toggle('show');
 }
 </script>
 
